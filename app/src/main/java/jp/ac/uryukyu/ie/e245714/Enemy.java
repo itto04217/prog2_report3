@@ -9,11 +9,35 @@ package jp.ac.uryukyu.ie.e245714;
  * Created by tnal on 2016/11/13.
  */
 public class Enemy {
-    public String name;
-    public int hitPoint;
-    public int attack;
-    public boolean dead;
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
 
+    public String getName(){
+        return this.name;
+    }
+    public int getHitPoint(){
+        return this.hitPoint;
+    }
+    public int getAttack(){
+        return this.attack;
+    }
+    public boolean isDead(){
+        return this.dead;
+    }
+    public void setName(String _name){
+        this.name = _name;
+    }
+    public void setHitPoint(int _hitPoint){
+        this.hitPoint = _hitPoint;
+    }
+    public void setAttack(int _attack){
+        this.attack = _attack;
+    }
+    public void setDead(boolean _dead){
+        this.dead = _dead;
+    }
     /**
      * コンストラクタ。名前、最大HP、攻撃力を指定する。
      * @param name モンスター名
@@ -36,7 +60,7 @@ public class Enemy {
     public void attack(Hero hero){
         int damage = (int)(Math.random() * attack);
         if (this.dead == false){
-            System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, hero.name, damage);
+            System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, hero.getName(), damage);
             hero.wounded(damage);
         }
         else{
